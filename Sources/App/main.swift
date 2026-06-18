@@ -1,10 +1,6 @@
 import AppKit
 import SwiftUI
 
-final class ClickableHostingView<Content: View>: NSHostingView<Content> {
-    override func acceptsFirstMouse(for event: NSEvent?) -> Bool { true }
-}
-
 let app = NSApplication.shared
 app.setActivationPolicy(.regular)
 
@@ -43,7 +39,7 @@ window.isOpaque = false
 window.backgroundColor = .clear
 window.hasShadow = false
 window.acceptsMouseMovedEvents = true
-window.contentView = ClickableHostingView(rootView: NotchView(games: Game.today, metrics: metrics))
+window.contentView = FirstMouseHostingView(rootView: NotchRootView(metrics: metrics))
 window.makeKeyAndOrderFront(nil)
 
 app.activate(ignoringOtherApps: true)
