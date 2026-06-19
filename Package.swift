@@ -5,6 +5,9 @@ let package = Package(
     name: "sportsnotch",
     platforms: [.macOS(.v14)],
     targets: [
-        .executableTarget(name: "App")
+        .executableTarget(
+            name: "App",
+            resources: [.process("Resources")]
+        )
     ]
 )

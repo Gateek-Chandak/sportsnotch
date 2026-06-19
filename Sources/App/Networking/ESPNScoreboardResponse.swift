@@ -16,6 +16,7 @@ struct ESPNCompetition: Decodable {
 }
 
 struct ESPNStatus: Decodable {
+    let displayClock: String?
     let type: ESPNStatusType
 }
 
@@ -29,6 +30,8 @@ struct ESPNCompetitor: Decodable {
     let homeAway: String
     let score: String?
     let team: ESPNTeam
+    let records: [ESPNRecord]?
+    let statistics: [ESPNStatistic]?
 }
 
 struct ESPNTeam: Decodable {
@@ -37,11 +40,22 @@ struct ESPNTeam: Decodable {
     let alternateColor: String?
 }
 
+struct ESPNRecord: Decodable {
+    let summary: String
+}
+
+struct ESPNStatistic: Decodable {
+    let name: String
+    let displayValue: String
+}
+
 struct ESPNDetail: Decodable {
     let clock: ESPNClock?
     let scoringPlay: Bool?
     let penaltyKick: Bool?
     let ownGoal: Bool?
+    let yellowCard: Bool?
+    let redCard: Bool?
     let team: ESPNTeamRef?
     let athletesInvolved: [ESPNAthlete]?
 }

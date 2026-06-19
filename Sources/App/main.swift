@@ -1,8 +1,10 @@
 import AppKit
 import SwiftUI
 
+AppFont.register()
+
 let app = NSApplication.shared
-app.setActivationPolicy(.regular)
+app.setActivationPolicy(.accessory)
 
 let screen = NSScreen.screens.first(where: { $0.safeAreaInsets.top > 0 }) ?? NSScreen.main!
 let screenFrame = screen.frame
@@ -18,7 +20,7 @@ let metrics = NotchMetrics(
     notchWidth: notchWidth,
     notchHeight: notchHeight,
     collapsedEar: 16,
-    expandedEar: 58
+    expandedEar: 56
 )
 
 let window = NSWindow(
@@ -40,7 +42,8 @@ window.backgroundColor = .clear
 window.hasShadow = false
 window.acceptsMouseMovedEvents = true
 window.contentView = FirstMouseHostingView(rootView: NotchRootView(metrics: metrics))
-window.makeKeyAndOrderFront(nil)
+window.orderFrontRegardless()
 
-app.activate(ignoringOtherApps: true)
+let menuBar = MenuBarController(window: window)
+
 app.run()

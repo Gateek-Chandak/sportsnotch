@@ -1,23 +1,22 @@
 import Foundation
 
-enum GoalKind {
-    case normal, penalty, ownGoal
-
-    var badge: String? {
-        switch self {
-        case .normal: return nil
-        case .penalty: return "Penalty"
-        case .ownGoal: return "Own Goal"
-        }
-    }
+enum MatchEventKind {
+    case goal, penalty, ownGoal, yellowCard, redCard
 }
 
-struct Goal: Identifiable {
+struct MatchEvent: Identifiable {
     let id = UUID()
     let minute: String
-    let scorer: String
+    let player: String
     let isHome: Bool
-    let kind: GoalKind
+    let kind: MatchEventKind
+}
+
+struct TeamStat: Identifiable {
+    let id = UUID()
+    let label: String
+    let away: String
+    let home: String
 }
 
 struct Game: Identifiable {
@@ -28,9 +27,13 @@ struct Game: Identifiable {
     let homeScore: Int
     let status: String
     let isLive: Bool
+    let isFinished: Bool
     let awayColor: String
     let homeColor: String
     let awayAltColor: String
     let homeAltColor: String
-    let goals: [Goal]
+    let awayRecord: String
+    let homeRecord: String
+    let events: [MatchEvent]
+    let stats: [TeamStat]
 }
