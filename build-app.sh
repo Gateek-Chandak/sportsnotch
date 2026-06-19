@@ -45,6 +45,9 @@ cat > "$BUNDLE/Contents/Info.plist" <<PLIST
 </plist>
 PLIST
 
+echo "Signing (ad-hoc)..."
+codesign --force --deep --sign - "$BUNDLE"
+
 echo "Zipping..."
 ditto -c -k --keepParent "$BUNDLE" "$DIST/$APP_NAME.zip"
 
