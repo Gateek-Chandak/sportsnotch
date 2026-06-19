@@ -27,7 +27,11 @@ private func makeGame(from event: ESPNEvent) -> Game? {
     let type = competition.status.type
     let status: String
     switch type.state {
-    case "in": status = competition.status.displayClock ?? type.shortDetail
+    case "in":
+        let readable = readableStatus(type.shortDetail)
+        status = readable == type.shortDetail
+            ? (competition.status.displayClock ?? type.shortDetail)
+            : readable
     case "pre": status = kickoffTime(from: event.date) ?? type.shortDetail
     default: status = readableStatus(type.shortDetail)
     }
