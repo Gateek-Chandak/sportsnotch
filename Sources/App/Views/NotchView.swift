@@ -63,7 +63,10 @@ struct NotchView: View {
             .background(notchShape.fill(backgroundGradient))
             .clipShape(notchShape)
             .onHover { hovering in
-                withAnimation(.snappy(duration: 0.32, extraBounce: 0.06)) {
+                let animation: Animation = hovering
+                    ? .snappy(duration: 0.32, extraBounce: 0.06)
+                    : .smooth(duration: 0.25)
+                withAnimation(animation) {
                     expanded = hovering
                 }
             }
