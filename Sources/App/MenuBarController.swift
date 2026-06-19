@@ -16,14 +16,14 @@ final class MenuBarController: NSObject {
     private func configure() {
         statusItem.button?.image = NSImage(
             systemSymbolName: "soccerball",
-            accessibilityDescription: "SportsNotch"
+            accessibilityDescription: "Sportsnotch"
         )
 
         toggleItem.title = "Hide Notch"
         toggleItem.action = #selector(toggleNotch)
         toggleItem.target = self
 
-        let quitItem = NSMenuItem(title: "Quit SportsNotch", action: #selector(quit), keyEquivalent: "q")
+        let quitItem = NSMenuItem(title: "Quit Sportsnotch", action: #selector(quit), keyEquivalent: "q")
         quitItem.target = self
 
         let menu = NSMenu()

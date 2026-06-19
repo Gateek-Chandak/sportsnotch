@@ -16,12 +16,7 @@ let notchWidth: CGFloat = {
     return screenFrame.width - left.width - right.width
 }()
 
-let metrics = NotchMetrics(
-    notchWidth: notchWidth,
-    notchHeight: notchHeight,
-    collapsedEar: 16,
-    expandedEar: 56
-)
+let metrics = NotchMetrics(notchWidth: notchWidth, notchHeight: notchHeight)
 
 let window = NSWindow(
     contentRect: NSRect(x: 0, y: 0, width: metrics.windowWidth, height: metrics.windowHeight),
@@ -29,10 +24,10 @@ let window = NSWindow(
     backing: .buffered,
     defer: false
 )
-
-let originX = screenFrame.midX - metrics.windowWidth / 2
-let originY = screenFrame.maxY - metrics.windowHeight
-window.setFrameOrigin(NSPoint(x: originX, y: originY))
+window.setFrameOrigin(NSPoint(
+    x: screenFrame.midX - metrics.windowWidth / 2,
+    y: screenFrame.maxY - metrics.windowHeight
+))
 
 window.level = .statusBar
 window.collectionBehavior = [.canJoinAllSpaces, .stationary, .fullScreenAuxiliary]

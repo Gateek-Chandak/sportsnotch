@@ -39,8 +39,7 @@ struct NotchView: View {
     }
 
     private var statusColor: Color {
-        guard game.isFinished else { return game.isLive ? .white : .white.opacity(0.4) }
-        return game.awayScore == game.homeScore ? .white.opacity(0.4) : .white
+        (game.isFinished || game.isLive) ? .white : .white.opacity(0.4)
     }
 
     private func advance(by delta: Int) {
@@ -89,11 +88,11 @@ struct NotchView: View {
             .foregroundStyle(color)
             .scaleEffect(expanded ? 1 : 0.9, anchor: isAway ? .trailing : .leading)
         let abbreviationText = Text(abbreviation)
-            .font(.geist(size: 13))
+            .font(.geist(size: 14))
             .tracking(0.5)
             .lineLimit(1)
             .fixedSize()
-            .foregroundStyle(.white.opacity(0.75))
+            .foregroundStyle(.white.opacity(0.85))
 
         return HStack(spacing: 0) {
             if expanded {
@@ -149,7 +148,7 @@ struct NotchView: View {
             Spacer()
             Text(game.homeRecord)
         }
-        .font(.system(size: 8))
+        .font(.geist(size: 8))
         .monospacedDigit()
         .foregroundStyle(.white.opacity(0.4))
         .padding(.top, -8)

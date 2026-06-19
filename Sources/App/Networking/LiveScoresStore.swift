@@ -4,6 +4,8 @@ import Observation
 @MainActor
 @Observable
 final class LiveScoresStore {
+    private static let refreshInterval: Duration = .seconds(10)
+
     var games: [Game] = []
 
     func pollForever() async {
@@ -11,7 +13,7 @@ final class LiveScoresStore {
             if let fetched = try? await fetchTodaysGames() {
                 games = fetched
             }
-            try? await Task.sleep(for: .seconds(10))
+            try? await Task.sleep(for: Self.refreshInterval)
         }
     }
 }
