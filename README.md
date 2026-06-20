@@ -1,7 +1,7 @@
 <div align="center">
-  <img src="assets/icon.png" width="120" alt="Sportsnotch" />
-  <h1>Sportsnotch</h1>
-  <img width="453" height="278" alt="Screenshot 2026-06-19 at 4 25 44 PM" src="https://github.com/user-attachments/assets/b6bb1686-9738-4cc5-b028-bc4e3cfa6a36" />
+    <img src="assets/icon.png" width="120" alt="Sportsnotch" />
+    <h1>Sportsnotch</h1>
+    <video src="https://github.com/user-attachments/assets/77994628-a5a6-4605-bf40-4c6299889dcf" width="600" controls></video>
 </div>
 
 
