@@ -6,7 +6,7 @@
 
 
 
-Make your notch actually useful: live **2026 FIFA World Cup** scores right at the top of your screen, plus every game's key details, goals, cards, the running clock, and stats.
+live **2026 FIFA World Cup** scores at the top of your screen, plus every game's key details, goals, cards, the running clock, and stats.
 
 ## Install
 
